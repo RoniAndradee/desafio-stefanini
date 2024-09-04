@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "DesafioStefanini.Controllers.PedidoController",
+    "Method": "Get",
+    "RelativePath": "pedidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
