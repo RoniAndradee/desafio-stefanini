@@ -51,7 +51,7 @@ namespace DesafioStefanini.Migrations
 
                     b.HasIndex("ProdutoId");
 
-                    b.ToTable("ItensPedidos", (string)null);
+                    b.ToTable("ItensPedidos");
                 });
 
             modelBuilder.Entity("DesafioStefanini.Models.PedidoModel", b =>
@@ -78,7 +78,7 @@ namespace DesafioStefanini.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pedidos", (string)null);
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("DesafioStefanini.Models.ProdutoModel", b =>
@@ -94,11 +94,11 @@ namespace DesafioStefanini.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Produtos", (string)null);
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("DesafioStefanini.Models.ItensPedidoModel", b =>

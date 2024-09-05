@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DesafioStefanini",
-    "\\DesafioStefanini\\Controllers"
+    "\\DesafioStefanini\\Controllers",
+    "\\DesafioStefanini\\Data"
   ],
-  "SelectedNode": "\\DesafioStefanini\\Controllers\\PedidoController.cs",
+  "SelectedNode": "\\DesafioStefanini.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -4529,11 +4529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ronie\\OneDrive\\Desktop\\DesafioStefanini\\DesafioStefanini\\DesafioStefanini.csproj",
+      "projectUniqueName": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\DesafioStefanini.csproj",
       "projectName": "DesafioStefanini",
-      "projectPath": "C:\\Users\\ronie\\OneDrive\\Desktop\\DesafioStefanini\\DesafioStefanini\\DesafioStefanini.csproj",
+      "projectPath": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\DesafioStefanini.csproj",
       "packagesPath": "C:\\Users\\ronie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ronie\\OneDrive\\Desktop\\DesafioStefanini\\DesafioStefanini\\obj\\",
+      "outputPath": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ronie\\AppData\\Roaming\\NuGet\\NuGet.Config",
