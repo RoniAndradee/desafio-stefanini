@@ -20,7 +20,7 @@ namespace DesafioStefanini.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProdutoModel>>> GetProdutos()
         {
-            return await _context.Produtos.ToListAsync();
+            return Ok(await _context.Produtos.ToListAsync());
         }
 
         // GET: api/Produto/5
@@ -34,7 +34,17 @@ namespace DesafioStefanini.Controllers
                 return NotFound();
             }
 
-            return produto;
+            return Ok(produto);
+        }
+
+        // POST: api/Produto
+        [HttpPost]
+        public async Task<ActionResult<ProdutoModel>> PostProduto(ProdutoModel produto)
+        {
+            _context.Produtos.Add(produto);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
         }
 
         // PUT: api/Produto/5
@@ -65,16 +75,6 @@ namespace DesafioStefanini.Controllers
             }
 
             return NoContent();
-        }
-
-        // POST: api/Produto
-        [HttpPost]
-        public async Task<ActionResult<ProdutoModel>> PostProduto(ProdutoModel produto)
-        {
-            _context.Produtos.Add(produto);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
         }
 
         // DELETE: api/Produto/5

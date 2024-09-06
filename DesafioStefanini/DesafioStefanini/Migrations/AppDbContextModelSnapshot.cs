@@ -36,20 +36,14 @@ namespace DesafioStefanini.Migrations
                     b.Property<int>("IdProduto")
                         .HasColumnType("int");
 
-                    b.Property<int>("PedidoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PedidoId");
+                    b.HasIndex("IdPedido");
 
-                    b.HasIndex("ProdutoId");
+                    b.HasIndex("IdProduto");
 
                     b.ToTable("ItensPedidos");
                 });
@@ -105,14 +99,14 @@ namespace DesafioStefanini.Migrations
                 {
                     b.HasOne("DesafioStefanini.Models.PedidoModel", "Pedido")
                         .WithMany("ItensPedido")
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdPedido")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("DesafioStefanini.Models.ProdutoModel", "Produto")
                         .WithMany("ItensPedido")
-                        .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdProduto")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Pedido");

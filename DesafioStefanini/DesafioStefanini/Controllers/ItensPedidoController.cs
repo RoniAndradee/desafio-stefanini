@@ -16,7 +16,7 @@ namespace DesafioStefanini.Controllers
             _context = context;
         }
 
-        // GET: api/ItensPedido
+        // GET
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItensPedidoModel>>> GetItensPedidos()
         {
@@ -26,7 +26,7 @@ namespace DesafioStefanini.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/ItensPedido/5
+        // GET
         [HttpGet("{id}")]
         public async Task<ActionResult<ItensPedidoModel>> GetItensPedido(int id)
         {
@@ -43,7 +43,34 @@ namespace DesafioStefanini.Controllers
             return itensPedido;
         }
 
-        // PUT: api/ItensPedido/5
+        //POST
+        [HttpPost]
+        public async Task<ActionResult<ItensPedidoModel>> PostItensPedido(ItensPedidoModel itensPedido)
+        {
+            // Verifica se o Pedido existe
+            var pedido = await _context.Pedidos.FindAsync(itensPedido.IdPedido);
+            if (pedido == null)
+            {
+                return BadRequest(new { message = "Pedido não encontrado." });
+            }
+
+            // Verifica se o Produto existe
+            var produto = await _context.Produtos.FindAsync(itensPedido.IdProduto);
+            if (produto == null)
+            {
+                return BadRequest(new { message = "Produto não encontrado." });
+            }
+
+            // Insere o novo item
+            _context.ItensPedidos.Add(itensPedido);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetItensPedido", new { id = itensPedido.Id }, itensPedido);
+        }
+
+
+
+        // PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> PutItensPedido(int id, ItensPedidoModel itensPedido)
         {
@@ -73,17 +100,7 @@ namespace DesafioStefanini.Controllers
             return NoContent();
         }
 
-        // POST: api/ItensPedido
-        [HttpPost]
-        public async Task<ActionResult<ItensPedidoModel>> PostItensPedido(ItensPedidoModel itensPedido)
-        {
-            _context.ItensPedidos.Add(itensPedido);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetItensPedido", new { id = itensPedido.Id }, itensPedido);
-        }
-
-        // DELETE: api/ItensPedido/5
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItensPedido(int id)
         {

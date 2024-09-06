@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\models\\itenspedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\models\\itenspedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\models\\pedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\models\\pedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\models\\produtomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\models\\produtomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\controllers\\itenspedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\controllers\\itenspedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|c:\\users\\ronie\\onedrive\\desktop\\desafio-stefanini\\desafiostefanini\\desafiostefanini\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06FA3A9C-9F8A-45B5-9324-3BF946332618}|DesafioStefanini\\DesafioStefanini.csproj|solutionrelative:desafiostefanini\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ItensPedidoController.cs",
-              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ItensPedidoController.cs",
-              "RelativeDocumentMoniker": "DesafioStefanini\\Controllers\\ItensPedidoController.cs",
-              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ItensPedidoController.cs",
-              "RelativeToolTip": "DesafioStefanini\\Controllers\\ItensPedidoController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAIwEwAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:22:57.949Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProdutoController.cs",
-              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ProdutoController.cs",
-              "RelativeDocumentMoniker": "DesafioStefanini\\Controllers\\ProdutoController.cs",
-              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ProdutoController.cs",
-              "RelativeToolTip": "DesafioStefanini\\Controllers\\ProdutoController.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAuwE0AAAAJAAAAAAAAAA==",
+              "Title": "PedidoModel.cs",
+              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\PedidoModel.cs",
+              "RelativeDocumentMoniker": "DesafioStefanini\\Models\\PedidoModel.cs",
+              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\PedidoModel.cs",
+              "RelativeToolTip": "DesafioStefanini\\Models\\PedidoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T16:27:34.389Z",
+              "WhenOpened": "2024-09-05T14:02:27.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ItensPedidoModel.cs",
+              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\ItensPedidoModel.cs",
+              "RelativeDocumentMoniker": "DesafioStefanini\\Models\\ItensPedidoModel.cs",
+              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\ItensPedidoModel.cs",
+              "RelativeToolTip": "DesafioStefanini\\Models\\ItensPedidoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T13:57:01.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProdutoModel.cs",
               "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\ProdutoModel.cs",
               "RelativeDocumentMoniker": "DesafioStefanini\\Models\\ProdutoModel.cs",
               "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Models\\ProdutoModel.cs",
               "RelativeToolTip": "DesafioStefanini\\Models\\ProdutoModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T16:24:57.191Z",
+              "WhenOpened": "2024-09-05T13:55:53.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItensPedidoController.cs",
+              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ItensPedidoController.cs",
+              "RelativeDocumentMoniker": "DesafioStefanini\\Controllers\\ItensPedidoController.cs",
+              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ItensPedidoController.cs",
+              "RelativeToolTip": "DesafioStefanini\\Controllers\\ItensPedidoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T13:50:23.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "DesafioStefanini\\Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\ronie\\OneDrive\\Desktop\\desafio-stefanini\\DesafioStefanini\\DesafioStefanini\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "DesafioStefanini\\Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T13:19:51.519Z",
               "EditorCaption": ""
             }
           ]

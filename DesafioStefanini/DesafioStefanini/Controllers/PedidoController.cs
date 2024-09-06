@@ -16,28 +16,82 @@ namespace DesafioStefanini.Controllers
             _context = context;
         }
 
-        // GET: api/Pedido
+        //GET
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PedidoModel>>> GetPedidos()
+        public async Task<ActionResult<IEnumerable<PedidoDto>>> GetPedidos()
         {
-            return await _context.Pedidos.ToListAsync();
+            var pedidos = await _context.Pedidos
+                .Include(p => p.ItensPedido)
+                .ThenInclude(ip => ip.Produto)
+                .ToListAsync();
+
+            var pedidoDtos = pedidos.Select(p => new PedidoDto
+            {
+                Id = p.Id,
+                NomeCliente = p.NomeCliente,
+                EmailCliente = p.EmailCliente,
+                Pago = p.Pago,
+                ValorTotal = p.ItensPedido.Sum(ip => ip.Quantidade * ip.Produto.Valor),
+                ItensPedido = p.ItensPedido.Select(ip => new ItemPedidoDto
+                {
+                    Id = ip.Id,
+                    IdProduto = ip.IdProduto,
+                    NomeProduto = ip.Produto.NomeProduto,
+                    ValorUnitario = ip.Produto.Valor,
+                    Quantidade = ip.Quantidade
+                }).ToList()
+            }).ToList();
+
+            return Ok(pedidoDtos);
         }
+
 
         // GET: api/Pedido/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PedidoModel>> GetPedido(int id)
+        public async Task<ActionResult<PedidoDto>> GetPedidoById(int id)
         {
-            var pedido = await _context.Pedidos.FindAsync(id);
+            var pedido = await _context.Pedidos
+                .Include(p => p.ItensPedido)
+                .ThenInclude(ip => ip.Produto)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (pedido == null)
             {
                 return NotFound();
             }
 
-            return pedido;
+            var pedidoDto = new PedidoDto
+            {
+                Id = pedido.Id,
+                NomeCliente = pedido.NomeCliente,
+                EmailCliente = pedido.EmailCliente,
+                Pago = pedido.Pago,
+                ValorTotal = pedido.ItensPedido.Sum(ip => ip.Quantidade * ip.Produto.Valor),
+                ItensPedido = pedido.ItensPedido.Select(ip => new ItemPedidoDto
+                {
+                    Id = ip.Id,
+                    IdProduto = ip.IdProduto,
+                    NomeProduto = ip.Produto.NomeProduto,
+                    ValorUnitario = ip.Produto.Valor,
+                    Quantidade = ip.Quantidade
+                }).ToList()
+            };
+
+            return Ok(pedidoDto);
         }
 
-        // PUT: api/Pedido/5
+
+        // POST: api/Pedido
+        [HttpPost]
+        public async Task<ActionResult<PedidoModel>> PostPedido(PedidoModel pedido)
+        {
+            _context.Pedidos.Add(pedido);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
+        }
+
+        //PUT: api/Pedido/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPedido(int id, PedidoModel pedido)
         {
@@ -65,16 +119,6 @@ namespace DesafioStefanini.Controllers
             }
 
             return NoContent();
-        }
-
-        // POST: api/Pedido
-        [HttpPost]
-        public async Task<ActionResult<PedidoModel>> PostPedido(PedidoModel pedido)
-        {
-            _context.Pedidos.Add(pedido);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
         }
 
         // DELETE: api/Pedido/5

@@ -1,4 +1,6 @@
-﻿namespace DesafioStefanini.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DesafioStefanini.Models
 {
     public class PedidoModel
     {
@@ -8,6 +10,8 @@
         public DateTime DataCriacao { get; set; }
         public bool Pago { get; set; }
 
-        public ICollection<ItensPedidoModel> ItensPedido { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<ItensPedidoModel> ItensPedido { get; set; } = new List<ItensPedidoModel>();
     }
 }

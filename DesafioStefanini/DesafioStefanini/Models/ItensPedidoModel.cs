@@ -1,4 +1,6 @@
-﻿namespace DesafioStefanini.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DesafioStefanini.Models
 {
     public class ItensPedidoModel
     {
@@ -7,7 +9,10 @@
         public int IdProduto { get; set; }
         public int Quantidade { get; set; }
 
-        public PedidoModel Pedido { get; set; }
-        public ProdutoModel Produto { get; set; }
+        [JsonIgnore]
+        public virtual PedidoModel? Pedido { get; set; }
+
+        [JsonIgnore]
+        public virtual ProdutoModel? Produto { get; set; }
     }
 }
