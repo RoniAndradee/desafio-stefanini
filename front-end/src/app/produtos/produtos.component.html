@@ -1,0 +1,30 @@
+<div class="title">
+    <h2>CRUD de Produtos</h2>
+</div>
+<div class="buscarProdutos" *ngIf="produtos.length">
+    <ul>
+        <li *ngFor="let produto of produtos">
+            {{ "Produto:" + produto.nomeProduto }}
+            {{ "valor: R$" + produto.valor }}
+
+        </li>
+    </ul>
+</div>
+<div *ngIf="!produtos.length">
+    Carregando...
+</div>
+
+<div class="buscarProduto">
+    <h3>Buscar Produto por ID</h3>
+
+    <input [(ngModel)]="id" placeholder="Digite o ID do produto" />
+
+    <button (click)="buscarProduto()">Buscar Produto</button>
+
+    <div *ngIf="produto">
+        <h4>Detalhes do Produto:</h4>
+        <p>ID: {{ produto.id }}</p>
+        <p>Nome: {{ produto.nomeProduto }}</p>
+        <p>Valor Unitário: {{ produto.valor }}</p>
+    </div>
+</div>

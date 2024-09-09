@@ -1,0 +1,17 @@
+*{
+    color: #FFF;
+}
+
+.title{
+    color: #FFF;
+    text-align: center;
+    padding: 20px;
+}
+
+.buscarProdutos{
+    display: flex;
+}
+
+.buscarProduto{
+    margin-top: 30px;
+}
