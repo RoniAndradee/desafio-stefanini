@@ -1,0 +1,114 @@
+<div class="title">
+    <h2>CRUD de Pedidos</h2>
+</div>
+<div class="crud">
+    <!-- GET -->
+    <div class="metodo listar">
+        <h3>Pedidos Cadastrados</h3>
+        <button (click)="listarPedidos()">Listar Pedidos</button>
+        <div *ngIf="listaPedidos">
+            <ul *ngFor="let pedido of listaPedidos">
+                <h4>Detalhes do Pedido:</h4>
+                <li>
+                    ID: {{ pedido.id }} |
+                    Cliente: {{ pedido.nomeCliente }} |
+                    Email: {{ pedido.emailCliente }} |
+                    Pago: {{pedido.pago ? 'Sim' : 'Não'}} |
+                    Total: R${{ pedido.valorTotal }}
+                </li>
+                <h4>Produtos:</h4>
+                <li *ngFor="let produto of listaPedidos[0].itensPedido"> <!-- Preciso fazer uma logica para listar os itens de cada pedido (na posicao do array)-->
+                    ID: {{ produto.id }} |
+                    ID Produto: {{ produto.idProduto }} |
+                    Nome: {{produto.nomeProduto}} |
+                    Valor: {{ produto.valorUnitario}} |
+                    Quantidade: {{produto.quantidade}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div *ngIf="!listaPedidos.length">
+        Carregando...
+    </div> -->
+
+    <!-- GET(ID) -->
+    <div class="metodo listar">
+        <h3>Buscar Pedido por ID</h3>
+        <input [(ngModel)]="idGet" placeholder="Digite o ID do pedido" />
+        <button (click)="buscarPedido()">Buscar Pedido</button>
+        <div *ngIf="pedido">
+            <h4>Detalhes do Pedido:</h4>
+            <ul>
+                <li>
+                    ID: {{ pedido.id }} |
+                    Cliente: {{ pedido.nomeCliente }} |
+                    Email: {{ pedido.emailCliente }} |
+                    Pago: {{pedido.pago ? 'Sim' : 'Não'}} |
+                    Total: R${{ pedido.valorTotal }}
+                </li>
+                <h4>Produtos:</h4>
+                <li *ngFor="let produto of pedido.itensPedido">
+                    ID: {{ produto.id }} |
+                    ID Produto: {{ produto.idProduto }} |
+                    Nome: {{produto.nomeProduto}} |
+                    Valor: {{ produto.valorUnitario}} |
+                    Quantidade: {{produto.quantidade}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="erroGet">
+            <p class="erro">Pedido não encontrado!</p>
+        </div>
+    </div>
+
+    <!-- POST -->
+    <div class="metodo">
+        <h3>Adicionar um pedido</h3>
+        <input [(ngModel)]="nomeCliente" placeholder="Nome do cliente">
+        <input [(ngModel)]="emailCliente" placeholder="Email do cliente">
+        <input [(ngModel)]="pago" placeholder="Pedido pago? (sim ou nao)">
+        <button (click)="adicionarPedido()">Adicionar Pedido</button>
+        <div *ngIf="novoPedido">
+            <p class="sucesso">Pedido adicionado com sucesso!</p>
+            <ul>
+                <li>
+                    ID: {{ novoPedido.id }} |
+                    Cliente: {{ novoPedido.nomeCliente }} |
+                    Pago: {{ novoPedido.pago }} |
+                    Total: R${{ novoPedido.valorTotal }}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="erroPost">
+            <p class="erro">Erro ao adicionar o pedido!</p>
+        </div>
+    </div>
+
+    <!-- UPDATE -->
+    <div class="metodo">
+        <h3>Editar um pedido</h3>
+        <input [(ngModel)]="idUpdate" placeholder="ID do pedido">
+        <input [(ngModel)]="novoNomeCliente" placeholder="Novo nome do cliente">
+        <input [(ngModel)]="novoEmailCliente" placeholder="Novo email do cliente">
+        <button (click)="editarPedido()">Editar Pedido</button>
+        <div *ngIf="editado">
+            <p class="sucesso">Pedido editado com sucesso!</p>
+        </div>
+        <div *ngIf="erroUpdate">
+            <p class="erro">Erro ao editar pedido!</p>
+        </div>
+    </div>
+
+    <!-- DELETE -->
+    <div class="metodo">
+        <h3>Deletar um Pedido</h3>
+        <input [(ngModel)]="idDelete" placeholder="ID do pedido" />
+        <button (click)="deletarPedido()">Deletar Pedido</button>
+        <div *ngIf="deletado">
+            <p class="sucesso">Pedido deletado com sucesso!</p>
+        </div>
+        <div *ngIf="erroDelete">
+            <p class="erro">Erro ao deletar o pedido!</p>
+        </div>
+    </div>
+</div>

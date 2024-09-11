@@ -46,7 +46,7 @@ namespace DesafioStefanini.Controllers
         }
 
 
-        // GET: api/Pedido/5
+        // GET
         [HttpGet("{id}")]
         public async Task<ActionResult<PedidoDto>> GetPedidoById(int id)
         {
@@ -81,17 +81,17 @@ namespace DesafioStefanini.Controllers
         }
 
 
-        // POST: api/Pedido
+        // POST
         [HttpPost]
         public async Task<ActionResult<PedidoModel>> PostPedido(PedidoModel pedido)
         {
             _context.Pedidos.Add(pedido);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
+            return CreatedAtAction("GetPedidoById", new { id = pedido.Id }, pedido);
         }
 
-        //PUT: api/Pedido/5
+        //PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPedido(int id, PedidoModel pedido)
         {
@@ -121,7 +121,7 @@ namespace DesafioStefanini.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Pedido/5
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePedido(int id)
         {

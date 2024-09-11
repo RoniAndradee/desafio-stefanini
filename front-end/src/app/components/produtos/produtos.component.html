@@ -3,22 +3,22 @@
 </div>
 <div class="crud">
     <!-- GET -->
-    <div class="metodo listar" *ngIf="produtos.length">
+    <div class="metodo listar" *ngIf="listaProdutos.length">
         <h3>Produtos Cadastrados</h3>
         <ul>
-            <li *ngFor="let produto of produtos">
+            <li *ngFor="let produto of listaProdutos">
                 ID: {{produto.id}} |
                 Nome: {{produto.nomeProduto}} |
                 Valor: R${{ produto.valor }}
             </li>
         </ul>
     </div>
-    <div *ngIf="!produtos.length">
+    <div *ngIf="!listaProdutos.length">
         Carregando...
     </div>
 
     <!-- GET(ID) -->
-    <div class="metodo">
+    <div class="metodo listar">
         <h3>Buscar Produto por ID</h3>
 
         <input [(ngModel)]="idGet" placeholder="Digite o ID do produto" />
@@ -35,8 +35,8 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="erroGet" class="erro">
-            <p>Produto não encontrado!</p>
+        <div *ngIf="erroGet">
+            <p class="erro">Produto não encontrado!</p>
         </div>
     </div>
 
@@ -47,7 +47,7 @@
         <input [(ngModel)]="valorProduto" placeholder="Digite o valor do produto (ex: 7.99)">
         <button (click)=" adicionarProduto()">Adicionar o Produto</button>
         <div *ngIf="novoProduto">
-            <p style="color:#0F0; margin: 10px;">Produto Adicionado com sucesso!</p>
+            <p class="sucesso">Produto Adicionado com sucesso!</p>
             <ul>
                 <li>
                     ID: {{ novoProduto.id }} |
@@ -56,8 +56,8 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="erroPost" class="erro">
-            <p>Erro ao adicionar o produto!</p>
+        <div *ngIf="erroPost">
+            <p class="erro">Erro ao adicionar o produto!</p>
         </div>
     </div>
 
@@ -67,18 +67,25 @@
         <input [(ngModel)]="idUpdate" placeholder="Digite o ID do produto" />
         <input [(ngModel)]="novoNome" placeholder="Digite o novo nome do produto" />
         <input [(ngModel)]="novoValor" placeholder="Digite o novo valor do produto (ex: 7.99)" />
-        <button (click)="excluirProduto()">Editar o Produto</button>
-
-
+        <button (click)="editarProduto()">Editar o Produto</button>
+        <div *ngIf="editado">
+            <p class="sucesso">Produto editado com sucesso!</p>
+        </div>
+        <div *ngIf="erroUpdate">
+            <p class="erro">Erro ao editar produto!</p>
+        </div>
     </div>
 
     <!-- DELETE -->
     <div class="metodo">
-        <h3>Excluir um Produto</h3>
+        <h3>Deletar um Produto</h3>
         <input [(ngModel)]="idDelete" placeholder="Digite o ID do produto" />
-        <button (click)="excluirProduto()">Excluir o Produto</button>
-        <div *ngIf="erroDelete" class="erro">
-            <p>Erro ao deletar o produto</p>
+        <button (click)="deletarProduto()">Deletar o Produto</button>
+        <div *ngIf="deletado">
+            <p class="sucesso">Produto deletado com sucesso!</p>
+        </div>
+        <div *ngIf="erroDelete">
+            <p class="erro">Erro ao deletar o produto!</p>
         </div>
     </div>
 </div>
