@@ -1,0 +1,89 @@
+<div class="title">
+    <h2>CRUD Itens Pedido</h2>
+</div>
+<div class="crud">
+<!-- GET -->
+    <div class="metodo listar">
+        <h3>Itens de Pedido Cadastrados</h3>
+        <button (click)="listarItensPedidos()">Listar Itens de Pedido</button>
+        <div *ngIf="listaItensPedidos">
+            <ul *ngFor="let item of listaItensPedidos">
+                <h4>Detalhes do Item {{ item.id }}:</h4>
+                <li>
+                    ID: {{ item.id }} | ID Pedido: {{ item.idPedido }} | ID Produto: {{ item.idProduto }} | Quantidade:
+                    {{ item.quantidade }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- GET(ID) -->
+    <div class="metodo listar">
+        <h3>Buscar Item de Pedido por ID</h3>
+        <input [(ngModel)]="idGet" placeholder="Digite o ID do item de pedido" />
+        <button (click)="buscarItensPedido()">Buscar Item</button>
+        <div *ngIf="itemPedido">
+            <h4>Detalhes do Item {{ itemPedido.id }}:</h4>
+            <ul>
+                <li>
+                    ID: {{ itemPedido.id }} | ID Pedido: {{ itemPedido.idPedido }} | ID Produto: {{ itemPedido.idProduto
+                    }} | Quantidade: {{ itemPedido.quantidade }}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="erroGet">
+            <p class="erro">Item de pedido não encontrado!</p>
+        </div>
+    </div>
+
+    <!-- POST -->
+    <div class="metodo">
+        <h3>Adicionar um Item de Pedido</h3>
+        <input [(ngModel)]="idPedido" placeholder="ID do Pedido">
+        <input [(ngModel)]="idProduto" placeholder="ID do Produto">
+        <input [(ngModel)]="quantidade" placeholder="Quantidade">
+        <button (click)="adicionarItensPedido()">Adicionar Item</button>
+        <div *ngIf="novoItemPedido">
+            <p class="sucesso">Item adicionado com sucesso!</p>
+            <ul>
+                <li>
+                    ID: {{ novoItemPedido.id }} | ID Pedido: {{ novoItemPedido.idPedido }} | ID Produto: {{
+                    novoItemPedido.idProduto }} | Quantidade: {{ novoItemPedido.quantidade }}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="erroPost">
+            <p class="erro">Erro ao adicionar o item!</p>
+        </div>
+    </div>
+
+    <!-- UPDATE -->
+    <div class="metodo">
+        <h3>Editar um Item de Pedido</h3>
+        <input [(ngModel)]="idUpdate" placeholder="ID do Item">
+        <input [(ngModel)]="idPedidoUpdate" placeholder="ID do pedido">
+        <input [(ngModel)]="novoIdProduto" placeholder="ID do novo Produto">
+        <input [(ngModel)]="novaQuantidade" placeholder="Quantidade">
+        <button (click)="editarItensPedido()">Editar Item</button>
+        <div *ngIf="editado">
+            <p class="sucesso">Item editado com sucesso!</p>
+        </div>
+        <div *ngIf="erroUpdate">
+            <p class="erro">Erro ao editar item!</p>
+        </div>
+    </div>
+
+    <!-- DELETE -->
+    <div class="metodo deletar">
+        <h3>Deletar um Item de Pedido</h3>
+        <input [(ngModel)]="idPedidoDelete" placeholder="Digite o ID do pedido">
+        <input [(ngModel)]="idDelete" placeholder="Digite o ID do item do pedido">
+        <button (click)="deletarItensPedido()">Deletar Item</button>
+        <div *ngIf="deletado">
+            <p class="sucesso">Item deletado com sucesso!</p>
+        </div>
+        <div *ngIf="erroDelete">
+            <p class="erro">Erro ao deletar o item!</p>
+        </div>
+    </div>
+</div>

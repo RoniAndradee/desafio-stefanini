@@ -15,23 +15,31 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 	styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent implements OnInit {
+	// [x: string]: any;
+	// GET 
 	listaPedidos: any[] = [];
-	idGet: any;
-	pedido: any;
-	erroGet: boolean = false;
 
-	novoPedido: any;
+	// GET(ID)
+	idGet: any;
+	erroGet: boolean = false;
+	pedido: any;
+
+	// POST
 	nomeCliente: string = '';
 	emailCliente: string = '';
+	novoPedido: any;
 	pago: string = '';
 	erroPost: boolean = false;
 
+	// UPDATE
 	idUpdate: any;
 	novoNomeCliente: string = '';
 	novoEmailCliente: string = '';
+	novoPagamento: string = '';
 	editado: boolean = false;
 	erroUpdate: boolean = false;
 
+	// DELETE
 	idDelete: any;
 	deletado: boolean = false;
 	erroDelete: boolean = false;
@@ -66,12 +74,15 @@ export class PedidosComponent implements OnInit {
 				},
 				error: (error) => {
 					this.erroGet = true;
+					this.pedido = undefined;
 					console.error('Erro ao buscar o pedido', error);
 				},
 				complete: () => {
 					console.log('Busca de pedido concluída.');
 				}
 			});
+		} else {
+			this.erroGet = true;
 		}
 	}
 
@@ -103,7 +114,8 @@ export class PedidosComponent implements OnInit {
 		const pedidoEditado = {
 			id: this.idUpdate,
 			nomeCliente: this.novoNomeCliente,
-			emailCliente: this.novoEmailCliente
+			emailCliente: this.novoEmailCliente,
+			pago: this.novoPagamento  == 'sim' ? true : false
 		};
 
 		if (this.novoNomeCliente && this.novoEmailCliente) {
@@ -114,6 +126,7 @@ export class PedidosComponent implements OnInit {
 				},
 				error: (error) => {
 					this.erroUpdate = true;
+					this.editado = false;
 					console.error('Erro ao editar o pedido', error);
 				}
 			});
@@ -134,6 +147,8 @@ export class PedidosComponent implements OnInit {
 					console.error('Erro ao deletar o pedido', error);
 				}
 			});
+		} else {
+			this.erroDelete = true;
 		}
 	}
 }

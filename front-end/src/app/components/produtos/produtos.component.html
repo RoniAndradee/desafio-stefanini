@@ -3,18 +3,17 @@
 </div>
 <div class="crud">
     <!-- GET -->
-    <div class="metodo listar" *ngIf="listaProdutos.length">
+    <div class="metodo listar" >
         <h3>Produtos Cadastrados</h3>
-        <ul>
-            <li *ngFor="let produto of listaProdutos">
+        <button (click)="listarProdutos()">Listar produtos</button>
+        <ul *ngFor="let produto of listaProdutos">
+            <h4>Detalhes do Produto: {{ produto.id }}</h4>
+            <li >
                 ID: {{produto.id}} |
                 Nome: {{produto.nomeProduto}} |
                 Valor: R${{ produto.valor }}
             </li>
         </ul>
-    </div>
-    <div *ngIf="!listaProdutos.length">
-        Carregando...
     </div>
 
     <!-- GET(ID) -->

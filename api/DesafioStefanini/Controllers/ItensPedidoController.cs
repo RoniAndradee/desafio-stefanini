@@ -47,21 +47,18 @@ namespace DesafioStefanini.Controllers
         [HttpPost]
         public async Task<ActionResult<ItensPedidoModel>> PostItensPedido(ItensPedidoModel itensPedido)
         {
-            // Verifica se o Pedido existe
             var pedido = await _context.Pedidos.FindAsync(itensPedido.IdPedido);
             if (pedido == null)
             {
                 return BadRequest(new { message = "Pedido não encontrado." });
             }
 
-            // Verifica se o Produto existe
             var produto = await _context.Produtos.FindAsync(itensPedido.IdProduto);
             if (produto == null)
             {
                 return BadRequest(new { message = "Produto não encontrado." });
             }
 
-            // Insere o novo item
             _context.ItensPedidos.Add(itensPedido);
             await _context.SaveChangesAsync();
 
@@ -101,10 +98,12 @@ namespace DesafioStefanini.Controllers
         }
 
         // DELETE
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteItensPedido(int id)
+        [HttpDelete("{idPedido}/{id}")]
+        public async Task<IActionResult> DeleteItensPedido(int idPedido, int id)
         {
-            var itensPedido = await _context.ItensPedidos.FindAsync(id);
+            var itensPedido = await _context.ItensPedidos
+                .FirstOrDefaultAsync(i => i.IdPedido == idPedido && i.Id == id);
+
             if (itensPedido == null)
             {
                 return NotFound();
@@ -115,6 +114,7 @@ namespace DesafioStefanini.Controllers
 
             return NoContent();
         }
+
 
         private bool ItensPedidoExists(int id)
         {

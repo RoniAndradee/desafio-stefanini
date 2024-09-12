@@ -8,7 +8,7 @@
         <button (click)="listarPedidos()">Listar Pedidos</button>
         <div *ngIf="listaPedidos">
             <ul *ngFor="let pedido of listaPedidos">
-                <h4>Detalhes do Pedido:</h4>
+                <h4>Detalhes do Pedido {{ pedido.id }}:</h4>
                 <li>
                     ID: {{ pedido.id }} |
                     Cliente: {{ pedido.nomeCliente }} |
@@ -16,20 +16,20 @@
                     Pago: {{pedido.pago ? 'Sim' : 'Não'}} |
                     Total: R${{ pedido.valorTotal }}
                 </li>
-                <h4>Produtos:</h4>
-                <li *ngFor="let produto of listaPedidos[0].itensPedido"> <!-- Preciso fazer uma logica para listar os itens de cada pedido (na posicao do array)-->
+                <h4>Itens do pedido {{ pedido.id }}:</h4>
+                <li *ngFor="let produto of pedido.itensPedido">
                     ID: {{ produto.id }} |
                     ID Produto: {{ produto.idProduto }} |
                     Nome: {{produto.nomeProduto}} |
                     Valor: {{ produto.valorUnitario}} |
                     Quantidade: {{produto.quantidade}}
                 </li>
+                <div *ngIf="!pedido.itensPedido.length">
+                    <p class="erro" style="text-align: left;">O pedido {{ pedido.id }} não possui produtos!</p>
+                </div>
             </ul>
         </div>
     </div>
-    <!-- <div *ngIf="!listaPedidos.length">
-        Carregando...
-    </div> -->
 
     <!-- GET(ID) -->
     <div class="metodo listar">
@@ -37,7 +37,7 @@
         <input [(ngModel)]="idGet" placeholder="Digite o ID do pedido" />
         <button (click)="buscarPedido()">Buscar Pedido</button>
         <div *ngIf="pedido">
-            <h4>Detalhes do Pedido:</h4>
+            <h4>Detalhes do Pedido {{ pedido.id }}:</h4>
             <ul>
                 <li>
                     ID: {{ pedido.id }} |
@@ -46,7 +46,7 @@
                     Pago: {{pedido.pago ? 'Sim' : 'Não'}} |
                     Total: R${{ pedido.valorTotal }}
                 </li>
-                <h4>Produtos:</h4>
+                <h4>Itens do pedido {{ pedido.id }}:</h4>
                 <li *ngFor="let produto of pedido.itensPedido">
                     ID: {{ produto.id }} |
                     ID Produto: {{ produto.idProduto }} |
@@ -54,6 +54,9 @@
                     Valor: {{ produto.valorUnitario}} |
                     Quantidade: {{produto.quantidade}}
                 </li>
+                <div *ngIf="!pedido.itensPedido.length">
+                    <p class="erro" style="text-align: left;">O pedido {{ pedido.id }} não possui produtos!</p>
+                </div>
             </ul>
         </div>
         <div *ngIf="erroGet">
@@ -90,6 +93,7 @@
         <input [(ngModel)]="idUpdate" placeholder="ID do pedido">
         <input [(ngModel)]="novoNomeCliente" placeholder="Novo nome do cliente">
         <input [(ngModel)]="novoEmailCliente" placeholder="Novo email do cliente">
+        <input [(ngModel)]="novoPagamento" placeholder="Pedido pago? (sim ou nao)">
         <button (click)="editarPedido()">Editar Pedido</button>
         <div *ngIf="editado">
             <p class="sucesso">Pedido editado com sucesso!</p>

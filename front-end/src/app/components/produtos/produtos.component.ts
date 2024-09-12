@@ -48,9 +48,7 @@ export class ProdutosComponent implements OnInit {
 
     constructor(private produtoService: ProdutoService) { }
 
-    ngOnInit(): void {
-        // this.listarProdutos()
-    }
+    ngOnInit(): void {}
 
     // GET
     listarProdutos(): void {

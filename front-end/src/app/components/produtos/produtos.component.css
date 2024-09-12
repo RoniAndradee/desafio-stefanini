@@ -5,6 +5,11 @@ h4 {
     margin-bottom: 20px;
 }
 
+h2{
+    font-size: 30px;
+    padding: 20px;
+}
+
 h3 {
     font-size: 20px;
 }
@@ -37,12 +42,12 @@ h4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 260px;
-    width: 350px;
+    max-height: 320px;
+    width: 500px;
 }
 
 .listar{
-    overflow-y: scroll;
+    overflow-y: auto;
     justify-content: flex-start;
 }
 
