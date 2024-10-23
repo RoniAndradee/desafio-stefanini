@@ -66,9 +66,7 @@ A API oferece as seguintes funcionalidades:
 
 2. Configure a conexão com o banco de dados no arquivo appsettings.json, alterando a string de conexão do MySQL:
    ```json
-   "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=seubanco;User Id=seuusuario;Password=suasenha;"
-} ```
+   "ConnectionStrings": { "DefaultConnection": "Server=localhost;Database=seubanco;User Id=seuusuario;Password=suasenha;" }
 
 3. Execute as migrações para criar o banco de dados:
    ```bash
